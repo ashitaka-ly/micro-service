@@ -1,4 +1,4 @@
-package com.ly.springcloud;
+package com.ly.springcloud.provider;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ApiApplicationTests {
+public class ProviderApplication8001Tests {
 
     @Test
     public void contextLoads() {
