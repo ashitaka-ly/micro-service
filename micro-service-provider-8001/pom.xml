@@ -21,15 +21,25 @@
 
 	<dependencies>
 		<!--SpringBoot的web依赖-->
-		<dependency>
+        <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<!--引入本地api的依赖-->
-		<dependency>
+        <!--引入本地api的依赖-->
+        <dependency>
 			<groupId>com.ly.springcloud</groupId>
 			<artifactId>micro-service-api</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+        <!--引入eureka client的依赖，可以将服务注册进eureka-->
+        <dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+        <!--利用actuator监控-->
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 	</dependencies>
 

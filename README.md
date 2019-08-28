@@ -10,3 +10,4 @@
 1. 用于提用数据模型等的[API模块](./micro-service-api)
 2. 用于提供服务的[服务提供者模块8001](./micro-service-provider-8001)
 3. 用户消费服务的[服务消费模块](./micro-service-consumer-80)
+4. 用于服务注册和发现的[eureka模块](./micro-service-eureka-7001)

@@ -20,6 +20,7 @@
 	</properties>
 
 	<dependencies>
+		<!--作为服务注册服务和发现模块，需要eureka server的依赖-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
