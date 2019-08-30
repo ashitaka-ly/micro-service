@@ -13,3 +13,9 @@
 4. 用于服务注册和发现的[eureka模块](./micro-service-eureka-7001)
 
 > 本工程使用H2内存数据库
+
+## 注意事项
+
+### 浏览器调用REST问题
+工程全部使用**RESTful**风格，没有web页面，返回值为字符串、布尔型或Object。在某些返回值不能转换为json对象时候，可能会出现浏览器访问两次RestController的情况，该问题可能是由于浏览器的json格式化插件造成的，可以尝试关闭浏览器的json格式化。
+（我在谷歌浏览器下测试时，遇到过这种情况——console会报一个错 Unchecked runtime.lastError: The message port closed before a response was received，其他浏览器未知）

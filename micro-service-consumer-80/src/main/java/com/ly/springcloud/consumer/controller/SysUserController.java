@@ -13,6 +13,7 @@ import java.util.List;
  * @author ashitaka
  */
 @RestController
+@RequestMapping("/sysUser")
 public class SysUserController {
 
     /**

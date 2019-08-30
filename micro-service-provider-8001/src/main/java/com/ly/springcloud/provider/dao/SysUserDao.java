@@ -15,7 +15,7 @@ import java.util.List;
 @Mapper
 public interface SysUserDao {
 
-    @Insert("insert into sys_user (name, password) values (#{name}, #{password)")
+    @Insert("insert into sys_user (name, password) values (#{name}, #{password})")
     boolean insert(SysUser sysUser);
 
     @Select("select id, name, password from sys_user where id = #{id}")
