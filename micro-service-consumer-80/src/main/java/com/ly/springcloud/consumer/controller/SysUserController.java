@@ -14,7 +14,11 @@ import java.util.List;
  */
 @RestController
 public class SysUserController {
-    private static final String REST_URL_PREFIX = "http://localhost:8001";
+
+    /**
+     * 访问eureka上的provider注册的服务
+     */
+    private static final String REST_URL_PREFIX = "http://MICRO-SERVICE-PROVIDER";
 
     @Autowired
     private RestTemplate restTemplate;

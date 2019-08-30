@@ -31,6 +31,16 @@
 			<artifactId>micro-service-api</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<!--引入ribbon的依赖-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+		</dependency>
+        <!--访问eureka，实现客户端的负载均衡-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
