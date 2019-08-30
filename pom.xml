@@ -23,8 +23,12 @@
 	<modules>
 		<module>micro-service-api</module>
 		<module>micro-service-consumer-80</module>
-		<module>micro-service-provider-8001</module>
 		<module>micro-service-eureka-7001</module>
+		<module>micro-service-eureka-7002</module>
+		<module>micro-service-eureka-7003</module>
+		<module>micro-service-provider-8001</module>
+		<module>micro-service-provider-8002</module>
+		<module>micro-service-provider-8003</module>
 	</modules>
 
 	<!--工程的参数-->

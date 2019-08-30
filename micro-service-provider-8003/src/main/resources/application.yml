@@ -1,0 +1,43 @@
+server:
+  port: 8003
+
+spring:
+  application:
+    name: micro-service-provider
+  ## 配置H2数据库连接
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb1
+    username: sa1
+    password: sa1
+    ## H2数据库初始化文件
+    schema: classpath:db/schema.sql
+    data: classpath:db/data.sql
+  ## H2数据库的配置
+  h2:
+    console:
+      # H2 web console 地址
+      path: /h2
+      # 程序开启时启动 H2 web console
+      enabled: true
+      settings:
+        # 允许 H2 web console 远程访问
+        web-allow-others: true
+        # 启用跟踪输出
+        trace: true
+
+## 配置eureka服务相关
+eureka:
+  client:    # 客户端注册服务到eureka列表中
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: micro-service-provider-8003    # 配置在eureka列表中显示的ID
+    prefer-ip-address: true    # 访问路径可以显示IP地址，而不是主机名
+
+## 配置actuator的提示信息
+info:
+  app.name: ashitaka's micro-springcloud-service
+  company.name: www.baidu.com
+  application.name: ${spring.application.name}
+
