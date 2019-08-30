@@ -11,3 +11,5 @@
 2. 用于提供服务的[服务提供者模块](./micro-service-provider-8001)
 3. 用户消费服务的[服务消费模块](./micro-service-consumer-80)
 4. 用于服务注册和发现的[eureka模块](./micro-service-eureka-7001)
+
+> 本工程使用H2内存数据库

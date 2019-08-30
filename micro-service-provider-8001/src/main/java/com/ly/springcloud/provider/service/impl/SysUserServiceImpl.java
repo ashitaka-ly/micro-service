@@ -1,10 +1,11 @@
 package com.ly.springcloud.provider.service.impl;
 
 import com.ly.springcloud.entity.SysUser;
+import com.ly.springcloud.provider.dao.SysUserDao;
 import com.ly.springcloud.provider.service.SysUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,6 +13,10 @@ import java.util.List;
  */
 @Service
 public class SysUserServiceImpl implements SysUserService {
+
+    @Autowired
+    private SysUserDao sysUserDao;
+
     /**
      * 新增系统用户
      *
@@ -20,8 +25,7 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public boolean add(SysUser sysUser) {
-        System.out.println("to add a sysUser :" + sysUser);
-        return true;
+        return sysUserDao.insert(sysUser);
     }
 
     /**
@@ -32,13 +36,7 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public SysUser get(Long id) {
-        List<SysUser> sysUserList = new ArrayList<>();
-        SysUser sysUserA = new SysUser(100L, "Andy", "qui123");
-        SysUser sysUserB = new SysUser(101L, "Bob", "0001120");
-        sysUserList.add(sysUserA);
-        sysUserList.add(sysUserB);
-
-        return sysUserList.get(id.intValue());
+        return sysUserDao.get(id);
     }
 
     /**
@@ -48,12 +46,6 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public List<SysUser> list() {
-        List<SysUser> sysUserList = new ArrayList<>();
-        SysUser sysUserA = new SysUser(100L, "Andy", "12341");
-        SysUser sysUserB = new SysUser(101L, "Bob", "43253");
-        sysUserList.add(sysUserA);
-        sysUserList.add(sysUserB);
-
-        return sysUserList;
+        return sysUserDao.list();
     }
 }
