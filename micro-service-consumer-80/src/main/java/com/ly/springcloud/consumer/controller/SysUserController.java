@@ -1,42 +1,38 @@
 package com.ly.springcloud.consumer.controller;
 
 import com.ly.springcloud.entity.SysUser;
+import com.ly.springcloud.service.SysUserClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
 /**
+ * 2019-09-02: 替换Feign作为负载均衡
+ *
  * @author ashitaka
  */
 @RestController
 @RequestMapping("/sysUser")
 public class SysUserController {
 
-    /**
-     * 访问eureka上的provider注册的服务
-     */
-    private static final String REST_URL_PREFIX = "http://MICRO-SERVICE-PROVIDER";
-
     @Autowired
-    private RestTemplate restTemplate;
-
-    @RequestMapping(value = "/add")
-    public boolean add(SysUser sysUser) {
-        return restTemplate.postForObject(REST_URL_PREFIX + "/provider/sysUser/add", sysUser, Boolean.class);
-    }
+    private SysUserClientService sysUserClientService;
 
     @RequestMapping(value = "/get/{id}")
     public SysUser get(@PathVariable("id") Long id) {
-        return restTemplate.getForObject(REST_URL_PREFIX + "/provider/sysUser/get/" + id, SysUser.class);
+        return sysUserClientService.get(id);
     }
 
     @RequestMapping(value = "/list")
     public List<SysUser> list() {
-        return restTemplate.getForObject(REST_URL_PREFIX + "/provider/sysUser/list", List.class);
+        return sysUserClientService.list();
     }
 
+    @RequestMapping(value = "/add")
+    public boolean add(SysUser sysUser) {
+        return sysUserClientService.add(sysUser);
+    }
 }
