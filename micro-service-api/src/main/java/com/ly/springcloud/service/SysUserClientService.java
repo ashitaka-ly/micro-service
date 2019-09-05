@@ -10,10 +10,11 @@ import java.util.List;
 
 /**
  * 使用Feign替代Ribbon做负载均衡
+ * 使用fallback表示服务调用失败的访问方法
  *
  * @author ashitaka
  */
-@FeignClient(value = "MICRO-SERVICE-PROVIDER")
+@FeignClient(value = "MICRO-SERVICE-PROVIDER", fallbackFactory = SysUserClientServiceFallbackFactory.class)
 public interface SysUserClientService {
 
     @RequestMapping(value = "/provider/sysUser/get/{id}", method = RequestMethod.GET)
